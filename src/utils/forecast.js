@@ -8,8 +8,9 @@ const forecast = (lat, long, callback) => {
         } else if (body.error) {
             callback('There\'s a problem with coordinates');
         } else {   
+            const description = `${body.current.weather_descriptions} with a temperature of ${body.current.temperature} degrees`;
             callback(null, {
-                current: body.current.weather_descriptions
+                current: description
             })
         }
     });
